@@ -48,6 +48,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AE81D54E2F155A2900B498B9 /* Exceptions for "Reactiv" folder in "Reactiv" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Reactiv.xctestplan,
+			);
+			target = AEFD69D12F1058A4004D6548 /* Reactiv */;
+		};
 		AEEFBA392F1479960081C5ED /* Exceptions for "Reactiv" folder in "ReactivAppClip" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -70,13 +77,6 @@
 			);
 			target = AEFD69E92F105900004D6548 /* ReactivAppClip */;
 		};
-		AEEFBA532F1484560081C5ED /* Exceptions for "Reactiv" folder in "Reactiv" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/Reactiv.xctestplan,
-			);
-			target = AEFD69D12F1058A4004D6548 /* Reactiv */;
-		};
 		AEFD69FA2F105903004D6548 /* Exceptions for "ReactivAppClip" folder in "ReactivAppClip" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -95,7 +95,7 @@
 		AEFD69D42F1058A4004D6548 /* Reactiv */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				AEEFBA532F1484560081C5ED /* Exceptions for "Reactiv" folder in "Reactiv" target */,
+				AE81D54E2F155A2900B498B9 /* Exceptions for "Reactiv" folder in "Reactiv" target */,
 				AEEFBA392F1479960081C5ED /* Exceptions for "Reactiv" folder in "ReactivAppClip" target */,
 			);
 			path = Reactiv;

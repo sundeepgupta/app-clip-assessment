@@ -2,15 +2,20 @@ import SwiftUI
 
 struct ProductListScreen: View {
     @State private var controller: ProductListController
+    private let productRepository: ProductRepositoryProtocol
 
     init(productRepository: ProductRepositoryProtocol) {
         self.controller = .init(productRepository: productRepository)
+        self.productRepository = productRepository
     }
 
     var body: some View {
         NavigationStack {
             controller.state.view
                 .navigationTitle("Our Products")
+                .navigationDestination(for: String.self) { handle in
+                    ProductDetailScreen(handle: handle, productRepository: productRepository)
+                }
                 .task(controller.loadData)
         }
     }
@@ -35,7 +40,9 @@ extension ProductListController.State {
                     spacing: 16
                 ) {
                     ForEach(products) { product in
-                        ProductListCard(product: product)
+                        NavigationLink(value: product.handle) {
+                            ProductListCard(product: product)
+                        }
                     }
                 }
                 .padding()

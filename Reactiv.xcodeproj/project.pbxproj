@@ -53,6 +53,8 @@
 			membershipExceptions = (
 				App/ContentView.swift,
 				Models/Product.swift,
+				ProductDetailScreen/ProductDetailController.swift,
+				ProductDetailScreen/ProductDetailScreen.swift,
 				ProductListScreen/ProductListCard.swift,
 				ProductListScreen/ProductListController.swift,
 				ProductListScreen/ProductListScreen.swift,

@@ -43,4 +43,14 @@ final class ProductRepositoryMock: ProductRepositoryProtocol {
     func loadProducts() async throws -> [Product] {
         try result.get()
     }
+
+    func loadProduct(handle: String) async throws -> Product {
+        Product(
+            handle: "p1",
+            title: "Hat",
+            description: "Warm",
+            imageURL: URL(string: "https://example.com/hat.png")!,
+            price: 10
+        )
+    }
 }

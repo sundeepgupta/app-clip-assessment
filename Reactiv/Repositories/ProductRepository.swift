@@ -2,6 +2,7 @@ import Foundation
 
 protocol ProductRepositoryProtocol {
     func loadProducts() async throws -> [Product]
+    func loadProduct(handle: String) async throws -> Product
 }
 
 final class ProductRepository: ProductRepositoryProtocol {
@@ -9,6 +10,7 @@ final class ProductRepository: ProductRepositoryProtocol {
         case unexpectedResponse
         case emptyData
         case unexpectedPayload
+        case productNotFound
     }
 
     private let urlSession: URLSessionProtocol
@@ -28,6 +30,16 @@ final class ProductRepository: ProductRepositoryProtocol {
         guard !productPayloads.isEmpty else { throw Error.emptyData }
 
         return try productPayloads.map(Product.init)
+    }
+
+    func loadProduct(handle: String) async throws -> Product {
+        let products = try await loadProducts()
+
+        guard let product = products.first(where: { $0.handle == handle }) else {
+            throw Error.productNotFound
+        }
+
+        return product
     }
 }
 

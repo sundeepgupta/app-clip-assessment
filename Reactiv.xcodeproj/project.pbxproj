@@ -51,9 +51,21 @@
 		AEEFBA392F1479960081C5ED /* Exceptions for "Reactiv" folder in "ReactivAppClip" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				ContentView.swift,
+				App/ContentView.swift,
+				Models/Product.swift,
+				ProductListScreen/ProductListCard.swift,
+				ProductListScreen/ProductListController.swift,
+				ProductListScreen/ProductListScreen.swift,
+				Repositories/ProductRepository.swift,
 			);
 			target = AEFD69E92F105900004D6548 /* ReactivAppClip */;
+		};
+		AEEFBA532F1484560081C5ED /* Exceptions for "Reactiv" folder in "Reactiv" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Reactiv.xctestplan,
+			);
+			target = AEFD69D12F1058A4004D6548 /* Reactiv */;
 		};
 		AEFD69FA2F105903004D6548 /* Exceptions for "ReactivAppClip" folder in "ReactivAppClip" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -73,6 +85,7 @@
 		AEFD69D42F1058A4004D6548 /* Reactiv */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				AEEFBA532F1484560081C5ED /* Exceptions for "Reactiv" folder in "Reactiv" target */,
 				AEEFBA392F1479960081C5ED /* Exceptions for "Reactiv" folder in "ReactivAppClip" target */,
 			);
 			path = Reactiv;

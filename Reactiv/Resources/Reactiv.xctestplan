@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "89A251DC-A004-4100-94D4-3D5545D35335",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Reactiv.xcodeproj",
+      "identifier" : "AEFD69D12F1058A4004D6548",
+      "name" : "Reactiv"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Reactiv.xcodeproj",
+        "identifier" : "AEEFBA2E2F1478DC0081C5ED",
+        "name" : "ReactivTests"
+      }
+    }
+  ],
+  "version" : 1
+}

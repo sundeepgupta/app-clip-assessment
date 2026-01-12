@@ -5,34 +5,20 @@ struct ProductDetailScreen: View {
 
     init(
         handle: String,
-        productRepository: ProductRepositoryProtocol
+        productRepository: ProductRepositoryProtocol,
+        cartRepository: CartRepository
     ) {
         self.controller = .init(
             handle: handle,
-            productRepository: productRepository
+            productRepository: productRepository,
+            cartRepository: cartRepository
         )
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                ZStack {
-                    Color.secondary.opacity(0.1)
-                    AsyncImage(url: controller.product?.imageURL) { phase in
-                        switch phase {
-                        case .empty:
-                            ProgressView()
-                        case .success(let image):
-                            image
-                                .resizable()
-                        case .failure:
-                            Image(systemName: "photo")
-                        @unknown default:
-                            Image(systemName: "photo") // TODO: Log
-                        }
-                    }
-                }
-                .aspectRatio(1, contentMode: .fit)
+                ProductAsyncImage(url: controller.product?.imageURL)
 
                 Text(controller.product?.title ?? "")
                     .font(.title)
@@ -55,5 +41,5 @@ struct ProductDetailScreen: View {
 }
 
 #Preview {
-    ProductDetailScreen(handle: "", productRepository: ProductRepository())
+    ProductDetailScreen(handle: "", productRepository: ProductRepository(), cartRepository: CartRepository())
 }

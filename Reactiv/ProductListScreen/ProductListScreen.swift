@@ -3,10 +3,12 @@ import SwiftUI
 struct ProductListScreen: View {
     @State private var controller: ProductListController
     private let productRepository: ProductRepositoryProtocol
+    private let cartRepository: CartRepository
 
-    init(productRepository: ProductRepositoryProtocol) {
+    init(productRepository: ProductRepositoryProtocol, cartRepository: CartRepository) {
         self.controller = .init(productRepository: productRepository)
         self.productRepository = productRepository
+        self.cartRepository = cartRepository
     }
 
     var body: some View {
@@ -14,7 +16,19 @@ struct ProductListScreen: View {
             controller.state.view
                 .navigationTitle("Our Products")
                 .navigationDestination(for: String.self) { handle in
-                    ProductDetailScreen(handle: handle, productRepository: productRepository)
+                    ProductDetailScreen(
+                        handle: handle,
+                        productRepository: productRepository,
+                        cartRepository: cartRepository
+                    )
+                }
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button(action: controller.showCart) { Image(systemName: "cart") }
+                    }
+                }
+                .fullScreenCover(isPresented: $controller.isShowingCart) {
+                    CartScreen(cartRepository: cartRepository)
                 }
                 .task(controller.loadData)
         }
@@ -56,5 +70,5 @@ extension Product: Identifiable {
 }
 
 #Preview {
-    ProductListScreen(productRepository: ProductRepository())
+    ProductListScreen(productRepository: Shared.productRepository, cartRepository: Shared.cartRepository)
 }

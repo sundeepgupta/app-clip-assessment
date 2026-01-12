@@ -54,3 +54,5 @@ final class ProductRepositoryMock: ProductRepositoryProtocol {
         )
     }
 }
+
+struct TestError: Error {}

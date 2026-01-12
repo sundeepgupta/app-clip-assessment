@@ -5,14 +5,17 @@ import Observation
     var product: Product?
 
     private let productRepository: ProductRepositoryProtocol
+    private let cartRepository: CartRepository
     private let handle: String
 
     init(
         handle: String,
-        productRepository: ProductRepositoryProtocol
+        productRepository: ProductRepositoryProtocol,
+        cartRepository: CartRepository
     ) {
         self.handle = handle
         self.productRepository = productRepository
+        self.cartRepository = cartRepository
     }
 
     func loadData() async {
@@ -23,5 +26,8 @@ import Observation
         }
     }
 
-    func addToCart() {}
+    func addToCart() {
+        guard let product else { return }
+        cartRepository.add(product: product)
+    }
 }

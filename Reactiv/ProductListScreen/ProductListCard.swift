@@ -5,23 +5,7 @@ struct ProductListCard: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            ZStack {
-                Color.secondary.opacity(0.1)
-                AsyncImage(url: product.imageURL) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                    case .success(let image):
-                        image
-                            .resizable()
-                    case .failure:
-                        Image(systemName: "photo")
-                    @unknown default:
-                        Image(systemName: "photo")
-                    }
-                }
-            }
-            .aspectRatio(1, contentMode: .fit)
+            ProductAsyncImage(url: product.imageURL)
 
             Text(product.title)
                 .font(.headline)

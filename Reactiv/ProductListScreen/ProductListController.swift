@@ -9,6 +9,7 @@ import Observation
     }
 
     var state: State = .loading
+    var isShowingCart = false
 
     private let productRepository: ProductRepositoryProtocol
 
@@ -24,5 +25,9 @@ import Observation
         } catch {
             state = .failure(error)
         }
+    }
+
+    func showCart() {
+        isShowingCart = true
     }
 }

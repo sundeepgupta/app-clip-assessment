@@ -52,12 +52,20 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				App/ContentView.swift,
+				App/Utilities.swift,
+				CartScreen/CartController.swift,
+				CartScreen/CartEntryRow.swift,
+				CartScreen/CartScreen.swift,
+				CartScreen/QuantityStepper/QuantityStepper.swift,
+				CartScreen/QuantityStepper/QuantityStepperController.swift,
+				Models/CartEntry.swift,
 				Models/Product.swift,
 				ProductDetailScreen/ProductDetailController.swift,
 				ProductDetailScreen/ProductDetailScreen.swift,
 				ProductListScreen/ProductListCard.swift,
 				ProductListScreen/ProductListController.swift,
 				ProductListScreen/ProductListScreen.swift,
+				Repositories/CartRepository.swift,
 				Repositories/ProductRepository.swift,
 			);
 			target = AEFD69E92F105900004D6548 /* ReactivAppClip */;

@@ -12,7 +12,7 @@ struct ProductListScreen: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $controller.navigationPath) {
             controller.state.view
                 .navigationTitle("Our Products")
                 .navigationDestination(for: String.self) { handle in
@@ -30,6 +30,7 @@ struct ProductListScreen: View {
                 .fullScreenCover(isPresented: $controller.isShowingCart) {
                     CartScreen(cartRepository: cartRepository)
                 }
+                .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: controller.route)
                 .task(controller.loadData)
         }
     }

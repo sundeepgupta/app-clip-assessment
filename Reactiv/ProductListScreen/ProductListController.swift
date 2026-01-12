@@ -10,6 +10,7 @@ import Observation
 
     var state: State = .loading
     var isShowingCart = false
+    var navigationPath: [String] = []
 
     private let productRepository: ProductRepositoryProtocol
 
@@ -29,5 +30,26 @@ import Observation
 
     func showCart() {
         isShowingCart = true
+    }
+
+    func route(userActivity: NSUserActivity) {
+        guard
+            let url = userActivity.webpageURL,
+            let handle = url.handle
+        else { return }
+
+        navigationPath.append(handle) // TODO: Deal with multiple stacked invocations
+    }
+}
+
+extension URL {
+    var handle: String? {
+        guard
+            pathComponents.count > 2,
+            pathComponents[1] == "product",
+            !pathComponents[2].isEmpty
+        else { return nil }
+
+        return pathComponents[2]
     }
 }
